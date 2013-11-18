@@ -1,0 +1,113 @@
+.page-header{
+	margin-top: 70px;
+}
+
+
+.navbar{
+	height: 0px;
+}
+
+.navbar-brand{
+	font-size: 14px;
+}
+
+.navbar ul{
+	font-size: 12px;
+}
+
+.lead{
+	font-size: 18px;
+}
+
+.page-header h1{
+	float: left;
+	line-height: 0px;
+}
+
+.color-pyramid{
+	float: right;
+	width: 20%;
+}
+
+.color-rows{
+	line-height: 10px;
+}
+
+.color-rows .left{
+	background: maroon;
+}
+.color-rows .middle{
+	background: #c7254e;
+}
+.color-rows .right{
+	background: beige;
+}
+
+.clear{
+	clear: both;
+}
+
+.form-control{
+	width: 200px;
+}
+
+.btn{
+	background:#C7254E;
+	border: #800000;
+}
+.btn:hover{
+	background:#911A38;
+}
+
+
+#footer .container{
+	margin-top: 20px;
+	height: 50px;
+	width: auto;
+	background: #F3F3F3;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#survey-section{
+	font-size: 10pt;
+	margin: 150px 10px 10px 10px;
+	padding: 15px;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+}
+
+#survey-section .submit{
+	text-align: center;
+	padding: 20px 0px;
+}
+
+#survey-section h4{
+	color: darkgray;
+	line-height: 0px;
+	margin-bottom: 15px;
+}
+
+.red{
+	color: #C7254E;
+}
+
+.toggleableParagraph{
+	font-size: 0.9em; 
+	color: #C7254E; 
+	border: 1px solid lightgray; 
+	padding: 20px; 
+	border-radius: 8px; 
+}
+
+.clickable{
+	/*color: #0C6571;*/
+}
+
+.clickable-btn{
+	background: lightgray;
+	/*color: white;*/
+	border: white;
+	padding: 3px;
+	border-radius: 8px;
+}

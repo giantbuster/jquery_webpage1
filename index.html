@@ -1,9 +1,338 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--TODO:
+	Make h1 turn red on click.
+	-->
+
+<!-- 
+	Jefferson Lam 
+	Coding Dojo : CS110
+	11-15-2013
+	jQuery webpage 1
+	-->
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8"/>
+	<title>jQuery Assignment</title>
+	<meta name="description" content="This is the first jQuery assignment"/>
+	<meta name="keywords" content="bootstrap blog coding dojo css html jQuery">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="blog.css">
+
+    <!--jQuery-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+
+    		$('#main-header').one('click', function(){
+    			$('#main-header').addClass('red');
+    			$('#main-header').append('&nbsp; Everything is interactive.');
+			});
+
+    		$('.lead').click(function(){
+    			$('.lead').after("<p>teehee</p>");
+    		});
+
+    		$('#attr-p').click(function(){
+    			$('#attr-p').attr('style', 'color:#C7254E');
+    		});
+
+    		$('#beforeMe').click(function(){
+    			$('#beforeMe').before("Surprise! &nbsp;");
+    		});
+
+			$('#createTable').click(function(){
+				$('#createTable').html("<h2 class='red'>Headers in disguise.</h2>");
+			});
+
+			$('#createText').click(function(){
+				$('#createText').text("<p>1234567890</p>");
+			});
+
+			$('#printValue').click(function(){
+				if ($('#fieldValue').val()){
+					$('#fieldValue').after('<br>' + $('#fieldValue').val());
+					$('#fieldValue').val(function(){
+						return '';
+					});
+				}
+			});
+
+			$('#toggle').click(function(){
+				$('#toggle-P').toggle();
+			});
+
+			$('#toggle2').click(function(){
+				$('#toggle-P2').toggle(200);
+			});
+
+			$('#peekaboo').hide();
+
+			$('#hidePeekaboo').click(function(){
+				$('#peekaboo').hide();
+			});
+			$('#showPeekaboo').click(function(){
+				$('#peekaboo').show();
+			});
+
+			$('#slideUpIpsum').click(function(){
+				$('#datingIpsum').slideUp();
+			});
+			$('#slideDownIpsum').click(function(){
+				$('#datingIpsum').slideDown();
+			});
+			$('#toggleIpsum').click(function(){
+				$('#datingIpsum2').slideToggle();
+			});
+			$('#fadeOutIpsum').click(function(){
+				$('#datingIpsum3').fadeOut();
+			});$('#fadeInIpsum').click(function(){
+				$('#datingIpsum3').fadeIn();
+			});
+
+			$( "#icecreamForm" ).submit(function(e) {
+				if ( $( "#icecreamField" ).val() === "I like ice cream" ) {
+					$( "#icecreamResponse" ).text( "Awesome!" ).show();
+					return false;
+				}
+				$( "#icecreamResponse" ).text( "Unacceptable!" ).show().fadeOut( 1000 );
+				return false;
+			});
+
+			$("#icecreamField").focus(function(){
+				$('#icecreamFocus').text("FOCUS!").show();
+			});
+
+			$("#icecreamField").blur(function(){
+				$('#icecreamFocus').fadeOut(200);
+			});
+
+
+
+			$("#serializeThis > button").click(function(){
+				$("#serializeThis > span").text($("#serializeThis").serialize());
+				return false;
+			});
+    	});
+    </script>
 </head>
 <body>
+	<div id="wrap">
+	<!-- Fixed navbar -->
+      	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        	<div class="container">
+          		<div class="navbar-header">
+            		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              		<span class="sr-only">Toggle navigation</span>
+              		<span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            </button>
+		            <a class="navbar-brand" href="#">CS101 CSS : Bootstrap Blog</a>
+		        </div>
+          		<div class="collapse navbar-collapse">
+	            	<ul class="nav navbar-nav">
+		              	<li class="active"><a href="#">Home</a></li>
+		              	<li><a href="#about">About</a></li>
+		              	<li><a href="#Contact">Contact</a></li>
+		              	<li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Media <b class="caret"></b></a>
+		                	<ul class="dropdown-menu">
+				                <li><a href="#">Music</a></li>
+				                <li><a href="#">Photo</a></li>
+				                <li><a href="#">Video</a></li>
+				                <li class="divider"></li>
+				                <li><a href="#">FaceBook</a></li>
+		                  		<li><a href="#">Twitter</a></li>
+		                    </ul>
+		                </li><!--/.dropdown -->
+	            	</ul>
+          		</div><!--/.nav-collapse -->
+        	</div>
+    	</div><!--navigation-->
+        <div class="container">
+        	<div class="page-header">
+	        	<h1 id="main-header"><span class="clickable">Click me!</span></h1>
+	        	<div class="color-pyramid">
+					<div class="row color-rows">
+						<div class="col-md-2 left">&nbsp;</div>
+						<div class="col-md-2 middle">&nbsp;</div>
+						<div class="col-md-8 right">&nbsp;</div>
+					</div>
+					<div class="row color-rows">
+						<div class="col-md-4 left">&nbsp;</div>
+						<div class="col-md-2 middle">&nbsp;</div>
+						<div class="col-md-6 right">&nbsp;</div>
+					</div>
+					<div class="row color-rows">
+						<div class="col-md-6 left">&nbsp;</div>
+						<div class="col-md-2 middle">&nbsp;</div>
+						<div class="col-md-4 right">&nbsp;</div>
+					</div>
+					<div class="row color-rows">
+						<div class="col-md-8 left">&nbsp;</div>
+						<div class="col-md-2 middle">&nbsp;</div>
+						<div class="col-md-2 right">&nbsp;</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div> <!--/.page-header-->
 
+			<div id="content-section">
+				<div id="main-content">
+					<p class="lead"><span class="clickable">Yes, everything on this page is interactive. Even this paragraph.</span></p>
+					<hr>
+					<p id="attr-p" class="clickable">Click here to change this paragraph's attributes.</p>
+					<hr>
+					<p id="beforeMe" class="clickable">Something's gonna pop up before this paragraph.</p>
+					<hr>
+					<p id="createTable" class="clickable">Transformers.</p>
+					<hr>
+					<p id="createText" class="clickable">Basic text here.</p>
+					<hr>
+					<button id="printValue" class="clickable-btn">This will print whatever is in the input field, but only if it's not empty</button>
+					<br>
+					<input id="fieldValue">
+					<hr>
+					<button id="toggle" class="clickable-btn">Toggle</button>
+					<p id="toggle-P" class="toggleableParagraph">This text will get toggled.</p>
+					<br>
+					<button id="toggle2" class="clickable-btn">Toggle</button>
+					<p id="toggle-P2" class="toggleableParagraph">And this text will get toggled with an animation.</p>
+					<hr>
+					<button id="showPeekaboo" class="clickable-btn">Show</button>
+					<button id="hidePeekaboo" class="clickable-btn">Hide</button>
+					<p id="peekaboo" class="toggleableParagraph">Peekaboo!</p>
+					<hr>
+					<p id="datingIpsum" class="toggleableParagraph">Working at a coffee shop the simple things in life snowboarding parallel parking. Share a new experience I have a crush on my height and shoulders I love the smell of no drama, rock climbing chilling at a bar with friends whatever topic is on NPR it depends on the night stepping outside your comfort zone. I'm just a regular guy Family Guy too many to list Vampire Weekend feminism degree in philosophy.</p>
+					<button id="slideUpIpsum" class="clickable-btn">Slide Up</button>
+					<button id="slideDownIpsum" class="clickable-btn">Slide Down</button>
+					<hr>
+					<p id="datingIpsum2" class="toggleableParagraph">
+					Beekeeping see, I told you my wife that was a joke, by the way. In my birthday suit I despise with lots of self-respect giving massages a fairly successful career in sports, no robots posing as real people I'm too lazy to keep typing I starred in my own reality show most cats eventually love me I am currently addicted to. Friendzone when I picked this username I didn't realize I couldn't change it if you like my profile ask
+					</p>
+					<button id="toggleIpsum" class="clickable-btn">Slide Toggle</button>
+					<hr>
+					<p id="datingIpsum3" class="toggleableParagraph">
+					I won't bite without permission friendzone you need a real man laughing hysterically. I may be somewhat jaded my hobbies include I did a lot of modeling work in the mid-80s when I picked this username I didn't realize I couldn't change it I love the smell of, beekeeping I attract girls who are very good-looking shotgunning beers I did a lot of modeling work in the mid-80s I am oddly aroused by. It's huge size 2 
+					</p>
+					<button id="fadeOutIpsum" class="clickable-btn">Fade Out</button>
+					<button id="fadeInIpsum" class="clickable-btn">Fade In</button>
+					<hr>
+					<div id="icecream">
+						<label>Type 'I like ice cream'.</label>
+						<form id="icecreamForm">
+							<input type="text" id="icecreamField">
+							<input type="submit" class="clickable-btn" value="Submit">
+						</form>
+						<span id="icecreamResponse"></span>
+						<span id="icecreamFocus"></span>
+					</div>
+					<hr>
+					<div class="serializearea">
+						<label>This stuff will get serialized.</label>
+						<form id="serializeThis">
+							<label>Name</label><input type="text" name="name">
+							<br>
+							<label>Apple</label><input type="checkbox" name="fruit" value="apple">
+							<label>Banana</label><input type="checkbox" name="fruit" value="banana">
+							<label>Orange</label><input type="checkbox" name="fruit" value="orange">
+							<br>
+							<label>Robot</label><input type="radio" name="gender" value="robot">
+							<label>Alien</label><input type="radio" name="gender" value="alien">
+							<br>
+							<button>Serialize!</button>
+							<br>
+							<span></span>
+						</form>
+					</div>
+				</div><!-- /.main-content -->
+				<hr>
+			</div> <!-- /.content-section -->
+			<!-- survey -->
+			<div id="survey-section">
+				<h4><span class="glyphicon glyphicon-question-sign"></span>&nbsp;How did I do?</h4>
+				<h5>Please fill out this quick survey. Your feedback is appreciated!</h5>
+
+				<!-- dummy attributes for form -->
+				<form class="form-horizontal frame" role="form">
+					<div class="form-group">
+						<label for="first_name" class="col-sm-3 control-label">First Name</label>
+						<div class="col-sm-6">
+							<input type="name" name="first_name" class="form-control" placeholder='Bob'>
+						</div>
+						<div class="col-sm-3"></div>
+					</div>
+					<div class="form-group">
+						<label for="first_name" class="col-sm-3 control-label">Last Name</label>
+						<div class="col-sm-6">
+							<input type="name" name="last_name" class="form-control" placeholder="Dole">
+						</div>
+						<div class="col-sm-3"></div>
+					</div>
+					<div class="form-group">
+						<label for="gender" class="col-sm-3 control-label">Gender</label>
+						<label class="col-sm-2">
+							<input type="radio" name="gender" value="male" id="optionRadios2">
+							Male
+						</label>
+						<label class="col-sm-2">
+							<input type="radio" name="gender" value="female" id="optionRadios1">
+							Female
+						</label>
+						<div class="col-sm-5"></div>
+					</div>
+					<div class="form-group">
+						<label for="favorite" class="col-sm-3 control-label">What does the fox say?</label>
+						<div class="checkboxes">
+							<label class="col-sm-2"><input type="checkbox" name="tags" value="red">Ring-ding-ding-ding-dingeringeding!</label>
+							<label class="col-sm-2"><input type="checkbox" name="tags" value="red">Wa-pa-pa-pa-pa-pa-pow!</label>
+							<label class="col-sm-2"><input type="checkbox" name="tags" value="red">Hatee-hatee-hatee-ho!</label>
+							<label class="col-sm-2"><input type="checkbox" name="tags" value="red">Joff-tchoff-tchoffo-tchoffo-tchoff!</label>
+							<div class="col-sm-1"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Tell me your password. For science.</label>
+						<div class="col-sm-6">
+							<input type="password" name="password" class="form-control" placeholder='Password'>
+						</div>
+						<div class="col-sm-4"></div>
+					</div>
+					<div class="form-group">
+						<label for="first_name" class="col-sm-3 control-label"></label>
+						<div class="col-sm-6">
+							<input type="name" name="last_name" class="form-control" placeholder="Confirm password">
+						</div>
+						<div class="col-sm-3"></div>
+					</div>
+				    <div class="form-group">
+						<label class="col-sm-3 control-label">Any other comments?</label>
+						<div class="col-sm-6">
+							<textarea name="description" class="form-control col" rows="2"></textarea>
+						</div>
+						<div class="col-sm-2"></div>
+				    </div>
+				    <div class="submit">
+			    		<button class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> &nbsp; Click here if you are drop dead sexy</button>
+			    	</div>
+				</form>
+			</div><!--/#survey-section-->
+		</div><!--/.container-->
+	</div><!-- end wrap -->
+	
+	<div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Thank you <a href="#">Coding Dojo</a>, <a href="#">BootStrap</a>, and <a href="">jQuery</a>.</p>
+      </div>
+    </div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
